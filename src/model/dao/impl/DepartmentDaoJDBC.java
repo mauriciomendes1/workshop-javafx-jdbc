@@ -32,7 +32,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 					"insert into department\r\n"
 					+ "(Name)\r\n"
 					+ "values\r\n"
-					+ "(?)");
+					+ "(?)", Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, obj.getName());
 			
 			int rowsAffected = st.executeUpdate();
