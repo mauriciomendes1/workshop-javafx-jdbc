@@ -89,8 +89,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"delete from department"
-					+ "where Id = ?");
+					"delete from department where Id = ?");
 			
 			st.setInt(1, id);
 			
@@ -98,6 +97,9 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
+			
+		}finally {
+			DB.closeStatement(st);
 		}
 		
 	}
