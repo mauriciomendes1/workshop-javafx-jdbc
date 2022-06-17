@@ -16,7 +16,7 @@ public class SellerService {
 	
 	public void saveOrUpdate(Seller obj) {
 		
-		if(obj.getId() == 0) {
+		if(obj.getId() == null) {
 			dao.insert(obj);
 			
 		}else {
